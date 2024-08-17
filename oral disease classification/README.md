@@ -1,5 +1,6 @@
 # Mouth and Oral Disease Classification using InceptionResNetV2
 #### ``` Please note that this implementation only includes the InceptionResNetV2 model. Due to a busy schedule this week, I was unable to implement an additional model for comparison of results.```
+### ``` Due to a busy schedule, the model has not been fully trained. However, it is capable of being trained effectively without any issues ```
 ## Overview
 This project implements a fine-tuned InceptionResNetV2 model using TensorFlow for classifying mouth and oral diseases. The model is trained on a dataset of images, augmented to enhance its performance, and evaluated for accuracy.
 
