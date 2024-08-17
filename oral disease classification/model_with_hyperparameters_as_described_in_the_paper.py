@@ -1,28 +1,35 @@
-# Mouth and Oral Disease Classification using InceptionResNetV2
-## Overview
-This project implements a fine-tuned InceptionResNetV2 model using TensorFlow for classifying mouth and oral diseases. The model is trained on a dataset of images, augmented to enhance its performance, and evaluated for accuracy.
-
-
-## Connecting to Google Drive
-The project is designed to run on Google Colab, where the dataset is stored in Google Drive. Connect to Google Drive as follows:
-
-```python
+#%% md
+# ## install reqs
+#%%
+!pip install tensorflow seaborn matplotlib scikit-learn
+#%% md
+# 
+# 
+# ```
+# # This is formatted as code
+# ```
+# 
+# ## connect to drive
+#%%
 from google.colab import drive
 drive.mount('/content/drive')
 import os
 # List the contents of your shared drives
 print(os.listdir('/content/drive/MyDrive'))
-```
-## Data Preparation and Augmentation
-The dataset is located in Google Drive and includes training, validation, and testing sets. Data augmentation is applied to the training set to improve the model's robustness.
 
-```python
+
+#%% md
+# ## load Data and make Data augmentation to increase data
+#%%
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 train_dir = '/content/drive/MyDrive/Teeth_Dataset/Training'
 validation_dir = '/content/drive/MyDrive/Teeth_Dataset/Validation'
 test_dir = '/content/drive/MyDrive/Teeth_Dataset/Testing'
+
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Data augmentation and preprocessing
 train_datagen = ImageDataGenerator(
@@ -59,11 +66,10 @@ test_generator = validation_datagen.flow_from_directory(
     class_mode='categorical',
     shuffle=False
 )
-```
-## Model Architecture and Fine-Tuning
-The InceptionResNetV2 model is used as the base model. Additional layers are added for classification, and the base model layers are frozen initially. The model is then fine-tuned by unfreezing some layers.
 
-```python
+#%% md
+# ## load model and fine-tune it
+#%%
 from tensorflow.keras.applications import InceptionResNetV2
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
@@ -84,6 +90,8 @@ for layer in base_model.layers:
 # Compile the model
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
+# Print the number of samples in the validation generator
+print("Number of validation samples:", validation_generator.samples)
 # Train the model
 history = model.fit(
     train_generator,
@@ -110,18 +118,17 @@ history_fine = model.fit(
     validation_steps=validation_generator.samples // validation_generator.batch_size,
     epochs=50
 )
-```
-## Evaluation
-The model's performance is evaluated on the test set, and a confusion matrix and classification report are generated to provide detailed performance metrics.
-
-```python
-import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, classification_report
-import seaborn as sns
 
 # Evaluate the model on the test set
 loss, accuracy = model.evaluate(test_generator)
 print(f'Test Accuracy: {accuracy}')
+
+#%% md
+# ## Evaluate the model
+#%%
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, classification_report
+import seaborn as sns
 
 # Get true labels and predictions
 y_true = test_generator.classes
@@ -138,4 +145,3 @@ plt.show()
 
 # Classification report
 print(classification_report(y_true, y_pred_classes, target_names=train_generator.class_indices.keys()))
-```
