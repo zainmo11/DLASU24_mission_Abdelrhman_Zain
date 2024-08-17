@@ -1,8 +1,8 @@
 # CNN-LSTM Model
 
 <div align="center">
-  <a href="./model_architecture.png">
-    <img src="other/logo.png" alt="Logo" width="176" height="160">
+  <a href="model_architecture.png">
+    <img src="model_architecture.png" alt="Logo" width="800" height="800">
   </a>
 
 </div>
