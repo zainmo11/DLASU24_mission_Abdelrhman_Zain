@@ -100,7 +100,7 @@ python PCA_Tabular.py
 
 ## Bottlenecks
 
-1. PCA reduces the data to only three components, leading to information loss. As a linear technique, PCA assumes that the variance in the data is best represented by linear combinations of the original features. This assumption might not hold for complex, non-linear datasets, causing important patterns to be overlooked.
+1. PCA reduces the data to three components, leading to information loss. As a linear technique, PCA assumes that the variance in the data is best represented by linear combinations of the original features. This assumption might not hold for complex, non-linear datasets, causing important patterns to be overlooked.
 
 2. Loading X_train_tabular.npy and y_train_tabular.npy files into memory can become a bottleneck, particularly for large datasets. These datasets may require substantial memory and processing resources, making efficient data handling a challenge.
 
