@@ -6,6 +6,7 @@
   </a>
 
 </div>
+
 ## Overview
 This project implements a `1D Convolutional Neural Network (CNN)` using PyTorch for regression tasks on sequential data. The model is designed to handle sequences and make predictions based on learned features.
 
