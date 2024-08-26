@@ -6,7 +6,9 @@
   </a>
 
 </div>
+
 ## Overview
+
 This project implements a Convolutional Neural Network (CNN) for a regression task using PyTorch. The model is designed to handle tabular sequential data and perform predictions based on learned features. This notebook is executed on Google Colab for ease of access to shared data.
 
 
