@@ -6,6 +6,7 @@
   </a>
 
 </div>
+
 ## Overview
 This project implements a Recurrent Neural Network `(RNN)` using PyTorch for a regression task. The model features a bidirectional RNN with dropout for regularization and two fully connected layers for output prediction.
 
