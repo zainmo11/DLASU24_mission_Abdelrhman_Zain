@@ -6,6 +6,7 @@
   </a>
 
 </div>
+
 ## Overview
 This project implements a simple Recurrent Neural Network `(RNN)` using PyTorch for a regression task. The model consists of an RNN layer followed by two fully connected layers.
 
